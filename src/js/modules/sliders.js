@@ -1,6 +1,7 @@
 const sliders = (slides, dir, prev, next) => {
 	let slideIndex = 1,
 		paused = false;
+
 	const items = document.querySelectorAll(slides);
 
 	function showSlides(n) {
@@ -43,12 +44,12 @@ const sliders = (slides, dir, prev, next) => {
 
 	function activateAnimation() {
 		if (dir === "vertical") {
-			paused = setInterval(() => {
+			paused = setInterval(function () {
 				plusSlides(1);
 				items[slideIndex - 1].classList.add("slideInDown");
 			}, 5000);
 		} else {
-			paused = setInterval(() => {
+			paused = setInterval(function () {
 				plusSlides(1);
 				items[slideIndex - 1].classList.remove("slideInRight");
 				items[slideIndex - 1].classList.add("slideInLeft");
