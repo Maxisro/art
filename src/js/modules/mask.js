@@ -3,7 +3,16 @@ const mask = (selector) => {
 	let setCursorPosition = (pos, elem)=>{
 		elem.focus();
 
-		if (elem.setSelectionRange)
+		if (elem.setSelectionRange){
+			elem.setSelectionRange(pos, pos)
+		} else if (elem.createTextRange){
+			let range = elem.createTextRange();
+
+			range.collapse(true);
+			range.moveEnd('character', pos);
+			range.moveStart('character', pos);
+			range.select();
+		}
 	};
 
 	function createMask(event) {
@@ -31,5 +40,12 @@ const mask = (selector) => {
 			setCursorPosition(this.value.length, this)
 		}
 	}
+
+	let inputs = document.querySelectorAll(selector);
+	inputs.forEach(input =>{
+		input.addEventListener('input', createMask);
+		input.addEventListener('focus', createMask);
+		input.addEventListener('blure', createMask);
+	})
 };
 export default mask;
