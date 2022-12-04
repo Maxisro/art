@@ -9,7 +9,7 @@ const scrolling = (upSelector) => {
 			upElem.classList.remove("fadeIn");
 		}
 	});
-	//Scr with animationFrame=======================================================================================================================================
+	//Scr with requestAnimationFrame========================================================================================================================
 
 	let links = document.querySelectorAll('[href^="#"]'),
 		speed = 0.3;
