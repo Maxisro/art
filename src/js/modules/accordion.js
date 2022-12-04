@@ -44,10 +44,6 @@ const accordion = (triggersSelector) => {
 				this.nextElementSibling.classList.add("active-content");
 				this.nextElementSibling.style.maxHeight =
 					this.nextElementSibling.scrollHeight + 80 + "px";
-			} else {
-				this.classList.remove("active-style");
-				this.nextElementSibling.classList.remove("active-content");
-				this.nextElementSibling.style.maxHeight = "0px";
 			}
 		});
 	});
